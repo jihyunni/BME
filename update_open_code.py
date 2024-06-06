@@ -75,19 +75,6 @@ from monai.inferers import sliding_window_inference
 print_config()
 
 
-
-
-# path = 'update_model/version_*/model_V*.pth'
-# current = os.getcwd()
-# print(current)
-# full_path = os.path.join(current, path)
-# print("Full path being searched:", full_path) 
-    
-# version_dirs = glob.glob(full_path)
-# print(version_dirs)
-
-
-
 path = glob.glob('Python/2024_CapStone/software/jihyun/update_model/version_*/model_V*.pth')
 print(path)
 
@@ -145,8 +132,6 @@ else:
     print("Returning latest model.")
     print(latest_model)
 
-
-
     
 data_dir = 'Python/2024_CapStone/software/jihyun/update_data/good'
 
@@ -172,7 +157,7 @@ G = G[-13::-1]
 random.shuffle(G)
 
 
-past_data = S[:5] + P[:5] + G[:5]  
+past_data = S[:12] + P[:12] + G[:8]  
 
 olds = []
 for tmp in past_data:
@@ -292,8 +277,6 @@ train_ds = CacheDataset(data=train_Data, transform=train_transforms)
 train_loader = DataLoader(train_ds, batch_size=1, shuffle=True)
 
 
-
-
 device = "cuda:0"
 model = monai.networks.nets.SwinUNETR(img_size=(96, 96, 32), in_channels=1, out_channels=3, feature_size=48).to(device)
 loss_function = DiceCELoss(to_onehot_y=True, softmax=True)
@@ -349,7 +332,6 @@ while global_step < max_iterations:
         global_step, train_loader
     )
     
-    
 torch.save(
                     model.state_dict(), os.path.join(log_dir, f"model_V{latest_version+1}.pth")
                 )
@@ -362,7 +344,7 @@ new_good_path = os.path.join(data_dir, f'V{latest_version + 1}')
 os.makedirs(new_good_path, exist_ok=True)
 print(f"Created new folder: {new_good_path}")
 
-# good_folders의 5개 폴더를 새로운 폴더로 이동
+# good_folders의 지정한 개수만큼의 폴더를 새로운 폴더로 이동
 for folder in new_data:
     src_path = os.path.join(data_dir, folder)
     dst_path = os.path.join(new_good_path, folder)
