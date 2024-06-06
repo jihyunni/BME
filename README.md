@@ -15,4 +15,4 @@ Interactive Web Interface for Continual Leaning in Breast MRI Segmentation Using
 ![image](https://github.com/jihyunni/BME_Capstone/assets/113456378/0c8a1d2a-2e28-48fa-b85f-5865403901c7)'
 
 # :ok_hand:. make interface using streamlit in web
---> go to " Real_total.py "  
+--> go to [Real_total.py](https://github.com/jihyunni/BME_Capstone/blob/b64fa5031961c22ca4e73fa002eabb9dfa062f02/Real_total.py)
