@@ -5,6 +5,7 @@ Interactive Web Interface for Continual Leaning in Breast MRI Segmentation Using
 1. breast segmentation
 2. automatic updating model
 3. make interface using streamlit in web
+![image2](https://github.com/jihyunni/BME_Capstone/assets/153705253/c2704a0f-111f-4d54-8eb4-65d4754f6706)
 
 # 1. breast segmentation
 --> go to Real_total.py 
