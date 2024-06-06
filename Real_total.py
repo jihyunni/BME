@@ -20,7 +20,6 @@ import glob
 import subprocess
 
 
-    
 st.set_page_config(layout="wide", page_title="BreastMRI", page_icon=":ribbon:")
 st.write("## Segmentation from T1")
 st.write("3D T1으로부터 Segmentation")
@@ -93,8 +92,6 @@ def fix_image(upload):
     return msk, h
 
 
-
-
 def measurements (f_, f):
     cnt_b = np.sum(f_ == 1)
     cnt_f = np.sum(f_ == 2)
@@ -125,6 +122,7 @@ def measurements (f_, f):
             file_name="measurement.xlsx",
             mime="application/vnd.ms-excel"
         )
+
 
 def removing_FP (mask_):
     mask_ = np.round(mask_)
@@ -161,7 +159,8 @@ def visual_mask(msk):
     nw = time
     mystr = nw.strftime('%Y-%m-%d %H:%M:%S')
     st.write(f"- {mystr}: rendering end")
-    
+
+
 def feedback (f, mask):
     
     number = st.text_input("Assign a folder number before clicking feedback button.")
@@ -193,7 +192,8 @@ def feedback (f, mask):
         nib.save(mask, os.path.join(mydir, 'mask.nii.gz'))
         
         st.write("Thank you for your feedback!")
-    
+
+
 def check ():
     if not (os.path.isdir('Python/2024_CapStone/software/jihyun/update_data/good')):
         return 0
