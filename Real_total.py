@@ -110,6 +110,7 @@ def measurements (f_, f):
     workbook = xlsxwriter.Workbook(output, {'in_memory': True})
     worksheet = workbook.add_worksheet()
     worksheet.write('A1', 'pid')
+    worksheet.write('A2', number)
     worksheet.write('B1', 'breast')
     worksheet.write('B2', ccvol_b)
     worksheet.write('C1', 'fgt')
