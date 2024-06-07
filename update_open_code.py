@@ -139,7 +139,7 @@ all= os.listdir(data_dir)
     
 good_folders = [f for f in os.listdir(data_dir) if os.path.isdir(os.path.join(data_dir, f)) and f != '.ipynb_checkpoints' and not re.match(r'^V', f)]
     
-new_data = good_folders[:5]
+new_data = good_folders[:24]
 print(new_data)
 print()
     
@@ -157,7 +157,7 @@ G = G[-13::-1]
 random.shuffle(G)
 
 
-past_data = S[:12] + P[:12] + G[:8]  
+past_data = S[:12] + P[:12] + G[:10]  
 
 olds = []
 for tmp in past_data:
@@ -312,7 +312,7 @@ def train(global_step, train_loader):
     return global_step
         
         
-max_iterations = 30
+max_iterations = 114800
 eval_num = 2
 post_label = AsDiscrete(to_onehot=3)
 post_pred = AsDiscrete(argmax=True, to_onehot=3)
